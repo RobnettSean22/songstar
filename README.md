@@ -4,6 +4,7 @@ massive
 dotenv
 express
 bcrypt
+react-redux
 
 _frontend_
 -comp-
