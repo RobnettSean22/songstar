@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const app = express();
+const { register, login, userSession, logout } = require("./controllers/users");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 app.use(express.json());
 
@@ -22,5 +23,16 @@ massive(CONNECTION_STRING).then(dbInstance => {
   app.set("db", dbInstance);
 });
 
+// register ********************************************
+app.post("/auth/register", register);
+
+// login ********************************************
+app.post("/auth/login", login);
+
+// user session ********************************************
+app.get("/auth/user_session", userSession);
+
+// logout ********************************************
+app.delete("/auth/logout", logout);
 let port = SERVER_PORT || 4001;
 app.listen(port, () => console.log(`catch me outside on ${port}`));
