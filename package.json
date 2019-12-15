@@ -2,10 +2,19 @@
   "name": "first-opj",
   "version": "0.1.0",
   "private": true,
+  "main": "./server",
+  "proxy": "http://localhost:4001",
   "dependencies": {
+    "bcrypt": "^3.0.7",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "massive": "^6.1.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-router": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "session": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
