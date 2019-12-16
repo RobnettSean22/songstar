@@ -6,11 +6,18 @@ const app = express();
 const { register, login, userSession, logout } = require("./controllers/users");
 const {
   viewAllSongs,
-  viewPlaylistSongs,
+
   newSong,
-  editSong,
-  clearSong
+  editSong
 } = require("./controllers/songs");
+const {
+  viewPlaylistSongs,
+  viewPlaylist,
+  newPlaylists,
+  clearPlaylist,
+  songToPlatlist,
+  clearSong
+} = require("./controllers/playlists");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 app.use(express.json());
 
@@ -47,10 +54,18 @@ app.delete("/auth/logout", logout);
 //-----------------------------------------------------
 
 app.get("/api/all_songs/", viewAllSongs);
-app.get("/api/playlist_songs/:id/:name", viewPlaylistSongs);
-app.post("/api/new_song/:id", newSong);
-app.put("/api/update_song/:song_name/:artist/:albulm", editSong);
-app.delete("/api/deletef_play/:id/:name/:id", clearSong);
+app.post("/api/new_song/", newSong);
+app.put("/api/update_song/:song_id", editSong);
 
+//-----------------------------------------------------
+//-----------------------------------------------------
+//-----------------------------------------------------
+
+app.get("/api/playlists/:user_id", viewPlaylist);
+app.post("/api/new_play/:user_id", newPlaylists);
+app.delete("/api/clear_play/:user_id/:playlist_id", clearPlaylist);
+app.get("/api/playlist_songs/:user_id/:playlist_id", viewPlaylistSongs);
+app.post("/api/to_play/:user_id/:playlist_id", songToPlatlist);
+app.delete("/api/deletef_play/:user_id/:playlist_id/:item_id", clearSong);
 let port = SERVER_PORT || 4001;
 app.listen(port, () => console.log(`catch me outside on ${port}`));

@@ -3,7 +3,7 @@ module.exports = {
   register: async (req, res, next) => {
     const { username, password } = req.body;
     db = req.app.get("db");
-    const foundUser = await db.find_user(username);
+    const foundUser = await db.ufind_user(username);
 
     if (foundUser.length) {
       res.status(400).send("user exist");
@@ -12,7 +12,7 @@ module.exports = {
       const salt = await bcrypt.genSalt(saltRounds);
       const hashedPaswored = await bcrypt.hash(password, salt);
       const newUser = await db
-        .new_user([username, hashedPaswored])
+        .unew_user([username, hashedPaswored])
         .catch(err => {
           console.log(err);
         });
@@ -27,7 +27,7 @@ module.exports = {
   login: async (req, res, next) => {
     const { username, password } = req.body;
     const db = req.app.get("db");
-    const [foundUser] = await db.find_user(username);
+    const [foundUser] = await db.ufind_user(username);
 
     if (!foundUser) {
       res.status(400).send("try again");

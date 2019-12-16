@@ -1,4 +1,4 @@
-DELETE FROM songs
-WHERE user_id = $1 and playlist_name = $2 and song_id = $3;
+DELETE FROM listsongs
+WHERE user_id = $1 and playlist_id = $2 and item_id = $3;
 SELECT *
-FROM songs
+FROM listsongs
