@@ -1,14 +1,26 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import axios from "axios";
+import Landing from "./component/Landing/Landing";
+
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    this.state = {
+      allSongs: null
+    };
   }
 
   render() {
-    return <div className="App"></div>;
+    return (
+      <React.Fragment>
+        <Switch>
+          <Route path="/" exact render={() => <Landing />} />
+        </Switch>
+      </React.Fragment>
+    );
   }
 }
 
