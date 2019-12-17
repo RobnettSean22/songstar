@@ -1,0 +1,13 @@
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+
+class AllSongs extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div></div>;
+  }
+}
+
+export default withRouter(AllSongs);
