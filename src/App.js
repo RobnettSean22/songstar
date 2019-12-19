@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
+import { setUser } from "./reducer/userReducer";
 import Landing from "./component/Landing/Landing";
 import AllSongs from "./component/AllSongs/AllSongs";
 import AddSong from "./component/AddSong/AddSong";
 import "./App.css";
+import AllPlaylists from "./component/AllPlaylists/AllPlaylists";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allSongs: []
+      allSongs: [],
+      allPlaylists: []
     };
   }
   componentDidMount() {
     this.viewAllSongs();
+    this.viewPlaylist();
   }
   viewAllSongs = async () => {
     const response = await axios.get("/api/all_songs");
@@ -22,9 +26,15 @@ class App extends Component {
       allSongs: response.data
     });
   };
+  viewPlaylist = async user_id => {
+    const response = await axios.get(`/api/playlists/${user_id}`);
+    this.setState({
+      allPlaylists: response.data
+    });
+  };
   render() {
     console.log(this.state.allSongs);
-    const { allSongs } = this.state;
+    const { allSongs, allPlaylists } = this.state;
     return (
       <React.Fragment>
         <Switch>
@@ -35,10 +45,27 @@ class App extends Component {
             render={() => <AllSongs songs={allSongs} />}
           />
           <Route path="/add_song/" exact render={() => <AddSong />} />
+          <Route
+            path="/all_playlists/:user_id"
+            exact
+            render={() => (
+              <AllPlaylists
+                playlists={allPlaylists}
+                id={this.props.user.user.user_id}
+              />
+            )}
+          />
         </Switch>
       </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapDispatchTopProps = {
+  setUser
+};
+export default connect(mapStateToProps, mapDispatchTopProps)(App);
