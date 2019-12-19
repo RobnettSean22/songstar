@@ -21,17 +21,17 @@ class Login extends Component {
     });
 
     this.props.setUser(loggedInUser.data);
+    this.props.history.push("/songs/");
   }
   async register() {
-    const { username, password, email } = this.state;
+    const { username, password } = this.state;
     const registerUser = await axios.post("/auth/register", {
       username,
-      password,
-      email
+      password
     });
 
     this.props.setUser(registerUser.data);
-    this.props.history.push("/my_kanji");
+    this.props.history.push("/songs/");
   }
   toRegister() {
     this.setState({
@@ -63,7 +63,7 @@ class Login extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <Link>
+          <Link to="/songs/">
             <button>Login</button>
           </Link>
           <h3 onClick={e => this.toRegister()}>Register</h3>
@@ -84,7 +84,7 @@ class Login extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <Link>
+          <Link to="/songs/">
             <button>Register</button>
           </Link>
           <h3 onClick={e => this.registered()}>Account Holder!</h3>
