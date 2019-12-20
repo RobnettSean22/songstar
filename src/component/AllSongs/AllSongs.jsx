@@ -6,6 +6,9 @@ class AllSongs extends Component {
   constructor(props) {
     super(props);
   }
+  componentDidMount() {
+    this.props.getAll();
+  }
   render() {
     const mapSongs = this.props.songs.map((songs, index) => {
       return (

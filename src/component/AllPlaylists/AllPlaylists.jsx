@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 class AllPlaylists extends Component {
   constructor(props) {
@@ -18,6 +20,13 @@ class AllPlaylists extends Component {
       });
     });
   }
+  clearPlaylist(user_id, playlist_id) {
+    axios.delete(`/api/clear_play/${user_id}/${playlist_id}`).then(response => {
+      this.setState({
+        name: response.data
+      });
+    });
+  }
   render() {
     const { input } = this.state;
     const mapPlay = this.props.id.map(playlists => {
@@ -26,9 +35,17 @@ class AllPlaylists extends Component {
           <Link>
             <button>{playlists.playlist_name}</button>
           </Link>
+          <h3
+            onClick={() =>
+              this.clearPlaylist(this.props.d, playlists.playlist_id)
+            }
+          >
+            Clear Playlist
+          </h3>
         </div>
       );
     });
+    console.log(this.props.id);
     return (
       <div>
         <div className="add-play">
@@ -47,4 +64,4 @@ class AllPlaylists extends Component {
   }
 }
 
-export default AllPlaylists;
+export default withRouter(AllPlaylists);

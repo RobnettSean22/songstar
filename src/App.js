@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
+import { connect } from "react-redux";
 import { setUser } from "./reducer/userReducer";
 import Landing from "./component/Landing/Landing";
 import AllSongs from "./component/AllSongs/AllSongs";
@@ -16,10 +17,7 @@ class App extends Component {
       allPlaylists: []
     };
   }
-  componentDidMount() {
-    this.viewAllSongs();
-    this.viewPlaylist();
-  }
+
   viewAllSongs = async () => {
     const response = await axios.get("/api/all_songs");
     this.setState({
@@ -42,7 +40,9 @@ class App extends Component {
           <Route
             path="/songs/"
             exact
-            render={() => <AllSongs songs={allSongs} />}
+            render={() => (
+              <AllSongs getAll={this.viewAllSongs} songs={allSongs} />
+            )}
           />
           <Route path="/add_song/" exact render={() => <AddSong />} />
           <Route

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Login.scss";
+
 import { connect } from "react-redux";
 import { setUser } from "../../reducer/userReducer";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Login extends Component {
       password: "",
       register: false
     };
+    this.login = this.login.bind(this);
   }
   async login() {
     const { username, password } = this.state;
@@ -19,7 +21,7 @@ class Login extends Component {
       username,
       password
     });
-
+    console.log(6626, loggedInUser.data);
     this.props.setUser(loggedInUser.data);
     this.props.history.push("/songs/");
   }
@@ -44,14 +46,13 @@ class Login extends Component {
     });
   }
   render() {
+    console.log(setUser);
     const { username, password } = this.state;
     return (
       <div className="login-content-container">
         <form
           className={this.state.register ? "hide" : "login-content"}
-          onSubmit={e => {
-            this.login();
-          }}
+          onSubmit={this.login}
         >
           <input
             placeholder="username"
@@ -63,9 +64,7 @@ class Login extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <Link to="/songs/">
-            <button>Login</button>
-          </Link>
+          <button>Login</button>
           <h3 onClick={e => this.toRegister()}>Register</h3>
         </form>
         <form
@@ -100,4 +99,4 @@ const mapStateToProps = state => {
 const mapDispatchTopProps = {
   setUser
 };
-export default connect(mapStateToProps, mapDispatchTopProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchTopProps)(Login));
