@@ -16,6 +16,7 @@ class App extends Component {
       allSongs: [],
       allPlaylists: []
     };
+    this.viewPlaylist = this.viewPlaylist.bind(this);
   }
 
   viewAllSongs = async () => {
@@ -50,8 +51,8 @@ class App extends Component {
             exact
             render={() => (
               <AllPlaylists
+                allPlay={this.viewPlaylist}
                 playlists={allPlaylists}
-                id={this.props.user.user.user_id}
               />
             )}
           />

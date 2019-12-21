@@ -33,14 +33,7 @@ class AddSong extends Component {
   }
 
   render() {
-    const {
-      songName,
-      artist,
-      albulm,
-      songInput,
-      artistInput,
-      albulmInput
-    } = this.state;
+    const { songInput, artistInput, albulmInput } = this.state;
     console.log(albulmInput);
     return (
       <div className="add-newsong-container">

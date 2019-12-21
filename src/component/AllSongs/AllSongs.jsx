@@ -1,14 +1,13 @@
 import React, { Component } from "react";
+import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 class AllSongs extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.getAll();
   }
+
   render() {
     const mapSongs = this.props.songs.map((songs, index) => {
       return (
@@ -22,6 +21,7 @@ class AllSongs extends Component {
     });
     return (
       <div>
+        <Header />
         <div className="add-song-container">
           <Link to="/add_song/">+ Add song</Link>
         </div>

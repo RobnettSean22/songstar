@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { setUser } from "../../reducer/userReducer";
+import { connect } from "react-redux";
 import axios from "axios";
 
-import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 class AllPlaylists extends Component {
   constructor(props) {
@@ -11,6 +12,9 @@ class AllPlaylists extends Component {
       name: [],
       input: ""
     };
+  }
+  componentDidMount() {
+    this.props.allPlay(this.props.user.user.user_id);
   }
   newPlaylists(user_id, playlist_name) {
     axios.post(`/api/new_play/${user_id}`, playlist_name).then(response => {
@@ -29,23 +33,25 @@ class AllPlaylists extends Component {
   }
   render() {
     const { input } = this.state;
-    const mapPlay = this.props.id.map(playlists => {
+    const mapPlay = this.props.playlists.map((playlists, index) => {
       return (
-        <div key={playlists.playlist_id}>
-          <Link>
-            <button>{playlists.playlist_name}</button>
-          </Link>
-          <h3
-            onClick={() =>
-              this.clearPlaylist(this.props.d, playlists.playlist_id)
+        <div key={index}>
+          <button>{playlists.playlist_name}</button>
+
+          <button
+            onClick={e =>
+              this.clearPlaylist(
+                this.props.user.user.user_id,
+                playlists.playlist_id
+              )
             }
           >
             Clear Playlist
-          </h3>
+          </button>
         </div>
       );
     });
-    console.log(this.props.id);
+
     return (
       <div>
         <div className="add-play">
@@ -54,7 +60,9 @@ class AllPlaylists extends Component {
             onChange={e => this.setState({ input: e.target.value })}
           />
           <button
-            onClick={e => this.newPlaylists(this.props.id, input)}
+            onClick={() =>
+              this.newPlaylists(this.props.user.user.user_id, input)
+            }
           ></button>
         </div>
 
@@ -64,4 +72,11 @@ class AllPlaylists extends Component {
   }
 }
 
-export default withRouter(AllPlaylists);
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapDispatchTopProps = {
+  setUser
+};
+export default connect(mapStateToProps, mapDispatchTopProps)(AllPlaylists);
