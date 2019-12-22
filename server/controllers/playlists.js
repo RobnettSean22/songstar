@@ -2,7 +2,7 @@ module.exports = {
   viewPlaylist: async (req, res, next) => {
     const db = req.app.get("db");
     const { user_id } = req.params;
-    const viewList = await db.pread_playlist(user_id);
+    const viewList = await db.pread_playlist([user_id]);
     return res.status(200).send(viewList);
   },
   newPlaylists: async (req, res, next) => {

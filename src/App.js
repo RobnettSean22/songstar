@@ -16,7 +16,7 @@ class App extends Component {
       allSongs: [],
       allPlaylists: []
     };
-    this.viewPlaylist = this.viewPlaylist.bind(this);
+    this.viewAllSongs = this.viewAllSongs.bind(this);
   }
 
   viewAllSongs = async () => {
@@ -25,12 +25,7 @@ class App extends Component {
       allSongs: response.data
     });
   };
-  viewPlaylist = async user_id => {
-    const response = await axios.get(`/api/playlists/${user_id}`);
-    this.setState({
-      allPlaylists: response.data
-    });
-  };
+
   render() {
     console.log(this.state.allSongs);
     const { allSongs, allPlaylists } = this.state;
@@ -49,12 +44,7 @@ class App extends Component {
           <Route
             path="/all_playlists/:user_id"
             exact
-            render={() => (
-              <AllPlaylists
-                allPlay={this.viewPlaylist}
-                playlists={allPlaylists}
-              />
-            )}
+            render={() => <AllPlaylists />}
           />
         </Switch>
       </React.Fragment>

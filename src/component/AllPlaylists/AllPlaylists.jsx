@@ -9,17 +9,23 @@ class AllPlaylists extends Component {
     super(props);
 
     this.state = {
-      name: [],
+      allPlaylists: [],
       input: ""
     };
   }
   componentDidMount() {
-    this.props.allPlay(this.props.user.user.user_id);
+    this.viewPlaylist(this.props.user.user.user_id);
   }
+  viewPlaylist = async user_id => {
+    const response = await axios.get(`/api/playlists/${user_id}`);
+    this.setState({
+      allPlaylists: response.data
+    });
+  };
   newPlaylists(user_id, playlist_name) {
-    axios.post(`/api/new_play/${user_id}`, playlist_name).then(response => {
+    axios.post(`/api/new_play/${user_id}`, { playlist_name }).then(response => {
       this.setState({
-        name: response.data,
+        allPlaylists: response.data,
         input: ""
       });
     });
@@ -27,19 +33,19 @@ class AllPlaylists extends Component {
   clearPlaylist(user_id, playlist_id) {
     axios.delete(`/api/clear_play/${user_id}/${playlist_id}`).then(response => {
       this.setState({
-        name: response.data
+        allPlaylists: response.data
       });
     });
   }
   render() {
-    const { input } = this.state;
-    const mapPlay = this.props.playlists.map((playlists, index) => {
+    const { input, allPlaylists } = this.state;
+    const mapPlay = allPlaylists.map((playlists, index) => {
       return (
-        <div key={index}>
+        <div key={playlists.playlist_id}>
           <button>{playlists.playlist_name}</button>
 
           <button
-            onClick={e =>
+            onClick={() =>
               this.clearPlaylist(
                 this.props.user.user.user_id,
                 playlists.playlist_id
