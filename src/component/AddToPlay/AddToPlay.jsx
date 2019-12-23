@@ -10,16 +10,18 @@ class AddToPlay extends Component {
       toPlay: []
     };
   }
-  songToPlaylist(user_id, playlist_id, song_id) {
-    axios.get(`/api/${user_id}/${playlist_id}`, { song_id }).then(response => {
-      this.setState({
-        toPlay: response.data
+  songToPlaylist(user_id, song_id, playlist_id) {
+    axios
+      .post(`/api/to_play/${user_id}/${playlist_id}`, { song_id })
+      .then(response => {
+        this.setState({
+          toPlay: response.data
+        });
       });
-    });
   }
   render() {
     const { toPlay } = this.state;
-    console.log(this.props.addSong);
+
     const mapToAdd = this.props.addSong.map(listem => {
       return (
         <div key={listem.song_id}>
@@ -27,9 +29,9 @@ class AddToPlay extends Component {
           <button
             onClick={() =>
               this.songToPlaylist(
-                this.props.match.params.user_id,
-                this.props.match.params.playlist_id,
-                toPlay
+                +this.props.match.params.user_id,
+                listem.song_id,
+                +this.props.match.params.playlist_id
               )
             }
           ></button>
