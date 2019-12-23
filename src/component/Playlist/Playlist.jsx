@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 
 class Playlist extends Component {
@@ -11,8 +12,8 @@ class Playlist extends Component {
   }
   componentDidMount() {
     this.viewPlaylistSongs(
-      +this.props.match.params.user_id,
-      +this.props.match.params.playlist_id
+      this.props.match.params.user_id,
+      this.props.match.params.playlist_id
     );
   }
   viewPlaylistSongs(user_id, playlist_id) {
@@ -40,11 +41,15 @@ class Playlist extends Component {
 
     return (
       <div>
-        <h1>Add to Playlist</h1>
+        <Link
+          to={`/add_to_play/${this.props.match.params.user_id}/${this.props.match.params.playlist_id}`}
+        >
+          <h1>Add to Playlist</h1>
+        </Link>
         {mapSongLink}
       </div>
     );
   }
 }
 
-export default Playlist;
+export default withRouter(Playlist);
