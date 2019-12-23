@@ -6,8 +6,10 @@ import { setUser } from "./reducer/userReducer";
 import Landing from "./component/Landing/Landing";
 import AllSongs from "./component/AllSongs/AllSongs";
 import AddSong from "./component/AddSong/AddSong";
-import "./App.css";
+import Playlist from "./component/Playlist/Playlist";
+import AddToPlay from "./component/AddToPlay/AddToPlay";
 import AllPlaylists from "./component/AllPlaylists/AllPlaylists";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +30,7 @@ class App extends Component {
 
   render() {
     console.log(this.state.allSongs);
-    const { allSongs, allPlaylists } = this.state;
+    const { allSongs } = this.state;
     return (
       <React.Fragment>
         <Switch>
@@ -45,6 +47,16 @@ class App extends Component {
             path="/all_playlists/:user_id"
             exact
             render={() => <AllPlaylists />}
+          />
+          <Route
+            path="/in_play/:user_id/:playlist_id/"
+            exact
+            render={() => <Playlist linkSongs={allSongs} />}
+          />
+          <Route
+            path="/add_to_play/:user_id/:playlist_id"
+            exact
+            render={() => <AddToPlay addSong={allSongs} />}
           />
         </Switch>
       </React.Fragment>

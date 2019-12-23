@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -14,7 +15,11 @@ class AllPlaylists extends Component {
     };
   }
   componentDidMount() {
-    this.viewPlaylist(this.props.user.user.user_id);
+    if (this.props.user.user) {
+      this.viewPlaylist(this.props.user.user.user_id);
+    } else {
+      this.props.history.push("/");
+    }
   }
   viewPlaylist = async user_id => {
     const response = await axios.get(`/api/playlists/${user_id}`);
@@ -39,10 +44,16 @@ class AllPlaylists extends Component {
   }
   render() {
     const { input, allPlaylists } = this.state;
+    const { linkSongs } = this.props;
+    console.log(linkSongs);
     const mapPlay = allPlaylists.map((playlists, index) => {
       return (
         <div key={playlists.playlist_id}>
-          <button>{playlists.playlist_name}</button>
+          <Link
+            to={`/in_play/${this.props.user.user.user_id}/${playlists.playlist_id}`}
+          >
+            <button>{playlists.playlist_name}</button>
+          </Link>
 
           <button
             onClick={() =>
@@ -85,4 +96,6 @@ const mapStateToProps = state => {
 const mapDispatchTopProps = {
   setUser
 };
-export default connect(mapStateToProps, mapDispatchTopProps)(AllPlaylists);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchTopProps)(AllPlaylists)
+);
