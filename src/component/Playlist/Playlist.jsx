@@ -42,8 +42,11 @@ class Playlist extends Component {
     return (
       <div>
         <Link
-          to={`/add_to_play/${+this.props.match.params.user_id}/${+this.props
-            .match.params.playlist_id}`}
+          to={{
+            pathname: `/add_to_play/${+this.props.match.params.user_id}/${+this
+              .props.match.params.playlist_id}`,
+            state: mapSongLink
+          }}
         >
           <h1>Add to Playlist</h1>
         </Link>

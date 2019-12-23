@@ -10,7 +10,7 @@ class AddToPlay extends Component {
       toPlay: []
     };
   }
-  songToPlaylist(user_id, song_id, playlist_id) {
+  songToPlaylist(user_id, playlist_id, song_id) {
     axios
       .post(`/api/to_play/${user_id}/${playlist_id}`, { song_id })
       .then(response => {
@@ -30,8 +30,8 @@ class AddToPlay extends Component {
             onClick={() =>
               this.songToPlaylist(
                 +this.props.match.params.user_id,
-                listem.song_id,
-                +this.props.match.params.playlist_id
+                +this.props.match.params.playlist_id,
+                listem.song_id
               )
             }
           ></button>
@@ -40,9 +40,7 @@ class AddToPlay extends Component {
     });
     return (
       <div>
-        <div>
-          <Playlist />
-        </div>
+        <div></div>
         {mapToAdd}
       </div>
     );
