@@ -33,8 +33,8 @@ module.exports = {
   },
   clearSong: async (req, res, next) => {
     const db = await req.app.get("db");
-    const { user_id, playlist_id, item_id } = req.params;
-    const xSong = await db.sdelete_songs([user_id, playlist_id, item_id]);
+    const { user_id, playlist_id, song_id } = req.params;
+    const xSong = await db.sdelete_songs([user_id, playlist_id, song_id]);
     return res.status(200).send(xSong);
   }
 };

@@ -25,15 +25,41 @@ class Playlist extends Component {
         });
       });
   }
+  clearSong(user_id, playlist_id, song_id) {
+    axios
+      .delete(`/api/deletef_play/${user_id}/${playlist_id}/${song_id}`)
+      .then(response => {
+        this.setState({
+          playSongs: response.data
+        });
+      });
+  }
 
   render() {
     const { playSongs } = this.state;
+
     const mapSongLink = playSongs.map(link => {
       const songs = this.props.linkSongs.filter(into => {
         return link.song_id === into.song_id;
       });
       const layout = songs.map(acplay => {
-        return <div key={acplay.song_id}>{acplay.song_name}</div>;
+        console.log(acplay);
+        return (
+          <div key={acplay.song_id}>
+            {acplay.song_name}
+            <h4
+              onClick={e =>
+                this.clearSong(
+                  +this.props.match.params.user_id,
+                  +this.props.match.params.playlist_id,
+                  acplay.song_id
+                )
+              }
+            >
+              Clear
+            </h4>
+          </div>
+        );
       });
 
       return layout;

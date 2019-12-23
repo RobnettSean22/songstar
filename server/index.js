@@ -66,6 +66,6 @@ app.post("/api/new_play/:user_id", newPlaylists);
 app.delete("/api/clear_play/:user_id/:playlist_id", clearPlaylist);
 app.get("/api/playlist_songs/:user_id/:playlist_id", viewPlaylistSongs);
 app.post("/api/to_play/:user_id/:playlist_id", songToPlatlist);
-app.delete("/api/deletef_play/:user_id/:playlist_id/:item_id", clearSong);
+app.delete("/api/deletef_play/:user_id/:playlist_id/:song_id", clearSong);
 let port = SERVER_PORT || 4001;
 app.listen(port, () => console.log(`catch me outside on ${port}`));

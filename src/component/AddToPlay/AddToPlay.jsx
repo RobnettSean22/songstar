@@ -20,8 +20,6 @@ class AddToPlay extends Component {
       });
   }
   render() {
-    const { toPlay } = this.state;
-
     const mapToAdd = this.props.addSong.map(listem => {
       return (
         <div key={listem.song_id}>
