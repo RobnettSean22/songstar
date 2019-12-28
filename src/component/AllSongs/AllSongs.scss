@@ -1,0 +1,34 @@
+.everything-song-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .image-n-song-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    img {
+      width: 50%;
+      height: 100%;
+    }
+    #allsong-container {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-x: hidden;
+      overflow-y: auto;
+      .song-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 3%;
+      }
+    }
+  }
+}
