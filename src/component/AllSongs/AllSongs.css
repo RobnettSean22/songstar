@@ -58,6 +58,8 @@
           align-items: flex-start;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-box-shadow: 69px -9px 59px white;
+          box-shadow: 69px -9px 59px white;
 }
 
 .everything-song-container .image-n-song-container #allsong-container .song-list {

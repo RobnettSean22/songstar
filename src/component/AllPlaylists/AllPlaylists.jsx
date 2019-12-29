@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Header from "../Header/Header";
 
 import axios from "axios";
 
@@ -74,6 +75,7 @@ class AllPlaylists extends Component {
 
     return (
       <div>
+        <Header />
         <div className="add-play">
           <input
             value={input}
