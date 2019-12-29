@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import "./Header.scss";
 
 class Header extends Component {
   constructor(props) {
@@ -16,8 +17,11 @@ class Header extends Component {
         <header>
           <div>
             <ul>
-              <NavLink to={`/all_playlists/:user_id`}>
-                <li>Playlistsrs</li>
+              <NavLink id="play-link" to={`/all_playlists/:user_id`}>
+                <li>Playlists</li>
+              </NavLink>
+              <NavLink to={`/songs/`}>
+                <li>All Songs</li>
               </NavLink>
             </ul>
           </div>

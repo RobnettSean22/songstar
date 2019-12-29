@@ -1,1 +1,34 @@
-/* No CSS *//*# sourceMappingURL=Header.css.map */
+div {
+  width: 100vw;
+}
+
+div header {
+  width: 100%;
+}
+
+div header div {
+  width: 100%;
+  float: right;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdb713), color-stop(80%), to(#f99100));
+  background: linear-gradient(#fdb713, 80%, #f99100);
+}
+
+div header div ul {
+  margin-left: 47%;
+}
+
+div header div ul a {
+  text-decoration: none;
+  color: white;
+}
+
+div header div ul a li {
+  display: inline-block;
+  font-size: 40px;
+  text-shadow: 2px 2px black;
+}
+
+div header div ul #play-link {
+  margin-right: 20%;
+}
+/*# sourceMappingURL=Header.css.map */

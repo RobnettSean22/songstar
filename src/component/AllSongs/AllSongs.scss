@@ -7,8 +7,12 @@
 
   .add-link {
     position: absolute;
-    top: 9%;
+    top: 11%;
     left: 92%;
+    font-size: 20px;
+    text-decoration: none;
+    color: yellow;
+    text-shadow: 2px 2px black;
   }
 
   .image-n-song-container {
@@ -23,6 +27,7 @@
       height: 100%;
     }
     #allsong-container {
+      direction: rtl;
       width: 50%;
       height: 100%;
       display: flex;
@@ -31,11 +36,13 @@
       overflow-x: hidden;
       overflow-y: auto;
       .song-list {
+        direction: ltr;
         display: flex;
-        // justify-content: center;
+        justify-content: center;
         align-items: flex-start;
         width: 100%;
         height: 100%;
+
         #ordered {
           width: 10%;
           margin-left: 40%;
@@ -43,4 +50,13 @@
       }
     }
   }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  display: yellow;
+}
+::-webkit-scrollbar-thumb {
+  background: yellow;
 }
