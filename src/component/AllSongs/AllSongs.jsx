@@ -13,22 +13,28 @@ class AllSongs extends Component {
   render() {
     const mapSongs = this.props.songs.map((songs, index) => {
       return (
-        <div className="song-list" key={songs.song_id}>
-          <h1>{index}</h1>
-          <h1>{songs.song_name}</h1>
-          <h2>{songs.artist}</h2>
+        <div key={songs.song_id} className="song-list">
+          <div id="ordered">
+            <h1>{index}.</h1>
+          </div>
+          <div>
+            <h1>{songs.song_name}</h1>
+            <h3>{songs.artist}</h3>
+          </div>
         </div>
       );
     });
     return (
-      <div className="everthing-song_container">
+      <div className="everything-song-container">
         <Header />
-        <div className="add-song-container">
-          <Link to="/add_song/">+ Add song</Link>
-        </div>
+
+        <Link className=" add-link" to="/add_song/">
+          + Add song
+        </Link>
+
         <div className="image-n-song-container">
-          <img src={star} alt="" />
           <div id="allsong-container">{mapSongs}</div>
+          <img src={star} alt="" />
         </div>
       </div>
     );

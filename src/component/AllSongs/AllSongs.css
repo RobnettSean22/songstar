@@ -1,0 +1,73 @@
+.everything-song-container {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.everything-song-container .add-link {
+  position: absolute;
+  top: 9%;
+  left: 92%;
+}
+
+.everything-song-container .image-n-song-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.everything-song-container .image-n-song-container img {
+  width: 50%;
+  height: 100%;
+}
+
+.everything-song-container .image-n-song-container #allsong-container {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.everything-song-container .image-n-song-container #allsong-container .song-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.everything-song-container .image-n-song-container #allsong-container .song-list #ordered {
+  width: 10%;
+  margin-left: 40%;
+}
+/*# sourceMappingURL=AllSongs.css.map */
