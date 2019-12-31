@@ -3,6 +3,7 @@ import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Header from "../Header/Header";
+import "./AllPlaylists.scss";
 
 import axios from "axios";
 
@@ -50,13 +51,13 @@ class AllPlaylists extends Component {
     console.log(linkSongs);
     const mapPlay = allPlaylists.map((playlists, index) => {
       return (
-        <div key={playlists.playlist_id}>
+        <div id="play-play" key={playlists.playlist_id}>
           <Link
             to={`/in_play/${+this.props.user.user.user_id}/${
               playlists.playlist_id
             }`}
           >
-            <button>{playlists.playlist_name}</button>
+            <h1>{playlists.playlist_name}</h1>
           </Link>
 
           <button
@@ -74,7 +75,7 @@ class AllPlaylists extends Component {
     });
 
     return (
-      <div>
+      <div id="play-contain">
         <Header />
         <div className="add-play">
           <input
@@ -88,7 +89,13 @@ class AllPlaylists extends Component {
           ></button>
         </div>
 
-        <div className="playlists">{mapPlay}</div>
+        <div className="playlists">
+          <div>
+            {" "}
+            <img src="" alt="" />
+          </div>
+          <div className="playlist-contan">{mapPlay}</div>
+        </div>
       </div>
     );
   }
