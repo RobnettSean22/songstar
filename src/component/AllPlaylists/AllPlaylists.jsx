@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import dance from "./dance_party.jpg";
 import Header from "../Header/Header";
 import "./AllPlaylists.scss";
 
@@ -51,7 +52,7 @@ class AllPlaylists extends Component {
     console.log(linkSongs);
     const mapPlay = allPlaylists.map((playlists, index) => {
       return (
-        <div id="play-play" key={playlists.playlist_id}>
+        <div className="play-play" key={playlists.playlist_id}>
           <Link
             to={`/in_play/${+this.props.user.user.user_id}/${
               playlists.playlist_id
@@ -77,24 +78,29 @@ class AllPlaylists extends Component {
     return (
       <div id="play-contain">
         <Header />
-        <div className="add-play">
-          <input
-            value={input}
-            onChange={e => this.setState({ input: e.target.value })}
-          />
-          <button
-            onClick={() =>
-              this.newPlaylists(this.props.user.user.user_id, input)
-            }
-          ></button>
-        </div>
 
         <div className="playlists">
-          <div>
+          <div className="just-dance">
             {" "}
-            <img src="" alt="" />
+            <img src={dance} alt="" />
           </div>
-          <div className="playlist-contan">{mapPlay}</div>
+
+          <div className="playlist-contain">
+            <input
+              placeholder="New folder"
+              value={input}
+              onChange={e => this.setState({ input: e.target.value })}
+            />
+            <button
+              className="create"
+              onClick={() =>
+                this.newPlaylists(this.props.user.user.user_id, input)
+              }
+            >
+              Create
+            </button>
+            {mapPlay}
+          </div>
         </div>
       </div>
     );
