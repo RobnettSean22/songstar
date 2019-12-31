@@ -61,7 +61,7 @@ class AllPlaylists extends Component {
             <h1>{playlists.playlist_name}</h1>
           </Link>
 
-          <button
+          <h2
             onClick={() =>
               this.clearPlaylist(
                 this.props.user.user.user_id,
@@ -69,8 +69,8 @@ class AllPlaylists extends Component {
               )
             }
           >
-            Clear Playlist
-          </button>
+            X
+          </h2>
         </div>
       );
     });
@@ -87,7 +87,7 @@ class AllPlaylists extends Component {
 
           <div className="playlist-contain">
             <input
-              placeholder="New folder"
+              placeholder="New Playlist"
               value={input}
               onChange={e => this.setState({ input: e.target.value })}
             />

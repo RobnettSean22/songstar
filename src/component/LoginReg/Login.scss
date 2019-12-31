@@ -15,13 +15,30 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     input {
       width: 90%;
       height: 5%;
       border-radius: 10%;
+      margin: 4%;
+    }
+    button {
+      width: 100%;
+      height: 11%;
+      font-size: 25px;
+      background: linear-gradient(#fdb713, 20%, #f99100);
+      border: #fdb713 1px solid;
+      border-radius: 11%;
+      margin-top: 19%;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background: linear-gradient(#f99100, 20%, #fdb713);
+        cursor: pointer;
+      }
     }
     a {
       width: 50%;

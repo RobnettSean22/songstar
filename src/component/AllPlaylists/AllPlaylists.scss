@@ -45,13 +45,34 @@
         height: 5%;
         border-radius: 5px;
         font-size: 22px;
+        text-shadow: 2px 2px #fec938;
         background: linear-gradient(to right, white, 60%, #fec938);
+        font-weight: bold;
       }
       .play-play {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        top: 20%;
+        justify-content: flex-end;
         align-items: center;
         width: 100%;
+        height: 10%;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+        h2 {
+          background: none;
+          border: none;
+          position: relative;
+          bottom: 124%;
+          left: 46%;
+        }
+        h2:hover {
+          cursor: pointer;
+          color: #fdb713;
+        }
       }
     }
   }
