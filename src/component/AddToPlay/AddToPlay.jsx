@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import Playlist from "../Playlist/Playlist";
+import { withRouter, Link } from "react-router-dom";
+import Header from "../Header/Header";
+import star from "./song_starB.jpg";
 import axios from "axios";
 
 class AddToPlay extends Component {
@@ -20,26 +21,38 @@ class AddToPlay extends Component {
       });
   }
   render() {
-    const mapToAdd = this.props.addSong.map(listem => {
+    const mapToAdd = this.props.addSong.map((listem, index) => {
       return (
-        <div key={listem.song_id}>
-          <h1>{listem.song_name}</h1>
-          <button
-            onClick={() =>
-              this.songToPlaylist(
-                +this.props.match.params.user_id,
-                +this.props.match.params.playlist_id,
-                listem.song_id
-              )
-            }
-          ></button>
+        <div key={listem.song_id} className="list-of-songs">
+          <div id="inline">
+            <h1>{index}</h1>
+          </div>
+          <div>
+            <h1>{listem.song_name}</h1>
+            <h3>{listem.artist}</h3>
+            <button
+              onClick={() =>
+                this.songToPlaylist(
+                  +this.props.match.params.user_id,
+                  +this.props.match.params.playlist_id,
+                  listem.song_id
+                )
+              }
+            ></button>
+          </div>
         </div>
       );
     });
     return (
-      <div>
-        <div></div>
-        {mapToAdd}
+      <div className="container-for-all">
+        <Header />
+        <Link className=" back" to="/add_song/">
+          To Playlist
+        </Link>
+        <div className="contain-image-n-songs">
+          <div id="ersong">{mapToAdd}</div>
+          <img src={star} alt="" />
+        </div>
       </div>
     );
   }

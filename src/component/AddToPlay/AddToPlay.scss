@@ -1,0 +1,63 @@
+.container-for-all {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .back {
+    position: absolute;
+    top: 11%;
+    left: 92%;
+    font-size: 20px;
+    text-decoration: none;
+    color: yellow;
+    text-shadow: 2px 2px black;
+  }
+
+  .contain-image-n-songs {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    img {
+      width: 50%;
+      height: 100%;
+    }
+    #ersong {
+      direction: rtl;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-x: hidden;
+      overflow-y: auto;
+      box-shadow: 69px -9px 59px white;
+      .list-of-songs {
+        direction: ltr;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+
+        #iinline {
+          width: 10%;
+          margin-left: 40%;
+        }
+      }
+    }
+  }
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  display: yellow;
+}
+::-webkit-scrollbar-thumb {
+  background: yellow;
+}
