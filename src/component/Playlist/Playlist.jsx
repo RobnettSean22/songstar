@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
+import solo from "./solo-play.jpg";
 import "./Playlist.scss";
 import Header from "../Header/Header";
 
@@ -49,7 +50,8 @@ class Playlist extends Component {
         console.log(acplay);
         return (
           <div className="new-entry" key={acplay.song_id}>
-            {acplay.song_name}
+            <h1>{acplay.song_name}</h1>
+            <h2>{acplay.artist}</h2>
             <h4
               onClick={e =>
                 this.clearSong(
@@ -72,8 +74,9 @@ class Playlist extends Component {
       <div id="box-held">
         <Header />
         <div id="second-box-held">
+          <div id="for-songs-added">{mapSongLink}</div>
           <div id="for-image-link">
-            <img />
+            <img src={solo} alt="" />
             <Link
               to={{
                 pathname: `/add_to_play/${+this.props.match.params
@@ -84,7 +87,6 @@ class Playlist extends Component {
               <h4>Add to Playlist</h4>
             </Link>
           </div>
-          <div id=" for-songs-added">{mapSongLink}</div>
         </div>
       </div>
     );
