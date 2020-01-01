@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
+import "./AddToPlay.scss";
 import Header from "../Header/Header";
 import star from "./song_starB.jpg";
 import axios from "axios";
@@ -25,7 +26,7 @@ class AddToPlay extends Component {
       return (
         <div key={listem.song_id} className="list-of-songs">
           <div id="inline">
-            <h1>{index}</h1>
+            <h1>{index}.</h1>
           </div>
           <div>
             <h1>{listem.song_name}</h1>

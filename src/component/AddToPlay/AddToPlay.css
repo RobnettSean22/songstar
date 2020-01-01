@@ -1,1 +1,96 @@
-/* No CSS *//*# sourceMappingURL=AddToPlay.css.map */
+.container-for-all {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container-for-all .back {
+  position: absolute;
+  top: 11%;
+  left: 92%;
+  font-size: 20px;
+  text-decoration: none;
+  color: yellow;
+  text-shadow: 2px 2px black;
+}
+
+.container-for-all .contain-image-n-songs {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.container-for-all .contain-image-n-songs img {
+  width: 50%;
+  height: 100%;
+}
+
+.container-for-all .contain-image-n-songs #ersong {
+  direction: rtl;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-box-shadow: 69px -9px 59px white;
+          box-shadow: 69px -9px 59px white;
+}
+
+.container-for-all .contain-image-n-songs #ersong .list-of-songs {
+  direction: ltr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.container-for-all .contain-image-n-songs #ersong .list-of-songs #inline {
+  width: 10%;
+  margin-left: 40%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  display: yellow;
+}
+
+::-webkit-scrollbar-thumb {
+  background: yellow;
+}
+/*# sourceMappingURL=AddToPlay.css.map */
