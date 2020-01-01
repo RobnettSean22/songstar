@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
+import "./Playlist.scss";
+import Header from "../Header/Header";
 
 import axios from "axios";
 
@@ -46,7 +48,7 @@ class Playlist extends Component {
       const layout = songs.map(acplay => {
         console.log(acplay);
         return (
-          <div key={acplay.song_id}>
+          <div className="new-entry" key={acplay.song_id}>
             {acplay.song_name}
             <h4
               onClick={e =>
@@ -67,17 +69,23 @@ class Playlist extends Component {
     });
 
     return (
-      <div>
-        <Link
-          to={{
-            pathname: `/add_to_play/${+this.props.match.params.user_id}/${+this
-              .props.match.params.playlist_id}`,
-            state: mapSongLink
-          }}
-        >
-          <h1>Add to Playlist</h1>
-        </Link>
-        {mapSongLink}
+      <div id="box-held">
+        <Header />
+        <div id="second-box-held">
+          <div id="for-image-link">
+            <img />
+            <Link
+              to={{
+                pathname: `/add_to_play/${+this.props.match.params
+                  .user_id}/${+this.props.match.params.playlist_id}`,
+                state: mapSongLink
+              }}
+            >
+              <h4>Add to Playlist</h4>
+            </Link>
+          </div>
+          <div id=" for-songs-added">{mapSongLink}</div>
+        </div>
       </div>
     );
   }
