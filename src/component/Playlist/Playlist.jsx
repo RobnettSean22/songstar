@@ -50,19 +50,21 @@ class Playlist extends Component {
         console.log(acplay);
         return (
           <div className="new-entry" key={acplay.song_id}>
-            <h1>{acplay.song_name}</h1>
-            <h2>{acplay.artist}</h2>
-            <h4
-              onClick={e =>
-                this.clearSong(
-                  +this.props.match.params.user_id,
-                  +this.props.match.params.playlist_id,
-                  acplay.song_id
-                )
-              }
-            >
-              Clear
-            </h4>
+            <div>
+              <h1>{acplay.song_name}</h1>
+              <h3> Artist:{acplay.artist}</h3>
+              <h4
+                onClick={e =>
+                  this.clearSong(
+                    +this.props.match.params.user_id,
+                    +this.props.match.params.playlist_id,
+                    acplay.song_id
+                  )
+                }
+              >
+                Clear
+              </h4>
+            </div>
           </div>
         );
       });
@@ -74,7 +76,12 @@ class Playlist extends Component {
       <div id="box-held">
         <Header />
         <div id="second-box-held">
-          <div id="for-songs-added">{mapSongLink}</div>
+          <div id="for-songs-added">
+            <div className="play-name">
+              <h1>{this.props.location.state}</h1>
+            </div>
+            {mapSongLink}
+          </div>
           <div id="for-image-link">
             <img src={solo} alt="" />
             <Link

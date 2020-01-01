@@ -54,9 +54,12 @@ class AllPlaylists extends Component {
       return (
         <div className="play-play" key={playlists.playlist_id}>
           <Link
-            to={`/in_play/${+this.props.user.user.user_id}/${
-              playlists.playlist_id
-            }`}
+            to={{
+              pathname: `/in_play/${+this.props.user.user.user_id}/${
+                playlists.playlist_id
+              }`,
+              state: playlists.playlist_name
+            }}
           >
             <h1>{playlists.playlist_name}</h1>
           </Link>
