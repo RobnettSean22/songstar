@@ -3,4 +3,13 @@
   height: 100vh;
   background: url(addback.jpg);
   background-size: cover;
+  form {
+    height: 27%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15%;
+  }
 }
