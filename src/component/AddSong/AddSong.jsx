@@ -40,8 +40,9 @@ class AddSong extends Component {
     return (
       <div className="add-newsong-container">
         <Header />
-        <label>New Song</label>
+
         <form onSubmit={e => this.newSong(songInput, artistInput, albulmInput)}>
+          <label>New Song</label>
           <input
             value={songInput}
             onChange={e => this.setState({ songInput: e.target.value })}
@@ -54,7 +55,7 @@ class AddSong extends Component {
             value={albulmInput}
             onChange={e => this.setState({ albulmInput: e.target.value })}
           />
-          <button></button>
+          <button>Add</button>
         </form>
       </div>
     );
