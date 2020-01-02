@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,sBAAsB,CAAC;EACrB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,gBAAgB;EAC5B,eAAe,EAAE,KAAK;CACvB",
     "sources": [
         "AddSong.scss"
     ],

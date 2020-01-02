@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import "./AddSong.scss";
 import axios from "axios";
 
 class AddSong extends Component {
@@ -37,9 +39,8 @@ class AddSong extends Component {
     console.log(albulmInput);
     return (
       <div className="add-newsong-container">
-        <div>
-          <Link to="/songs/">All Songs</Link>
-        </div>
+        <Header />
+        <label>New Song</label>
         <form onSubmit={e => this.newSong(songInput, artistInput, albulmInput)}>
           <input
             value={songInput}
