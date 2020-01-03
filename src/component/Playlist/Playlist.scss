@@ -43,11 +43,13 @@
           justify-content: flex-start;
           align-items: center;
           h1 {
+            font-size: 21px;
+            display: inline;
             margin: 0%;
           }
           h4 {
             position: relative;
-            top: -130%;
+            top: -119%;
             left: 147%;
             color: white;
             text-shadow: 2px 2px black;
