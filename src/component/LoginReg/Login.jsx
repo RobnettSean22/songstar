@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import star from "./star.png";
 import "./Login.scss";
 
 import { connect } from "react-redux";
@@ -50,6 +51,15 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <div className="login-content-container">
+        <div id="headline">
+          <h1>
+            SongSt
+            <span>
+              <img src={star} alt="" />
+            </span>{" "}
+            r
+          </h1>
+        </div>
         <form
           className={this.state.register ? "hide" : "login-content"}
           onSubmit={this.login}
