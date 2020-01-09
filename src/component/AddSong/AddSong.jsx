@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import Header from "../Header/Header";
+import Logout from "../Logout/Logout";
 import "./AddSong.scss";
 import axios from "axios";
 
@@ -57,6 +58,9 @@ class AddSong extends Component {
           />
           <button>Add</button>
         </form>
+        <div className="log-out">
+          <Logout />
+        </div>
       </div>
     );
   }

@@ -1,0 +1,13 @@
+.out {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(#fdb713, 80%, #f99100);
+  h1 {
+    margin-right: 0.5%;
+    color: white;
+    text-shadow: 2px 2px black;
+  }
+}

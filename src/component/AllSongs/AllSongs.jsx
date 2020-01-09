@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import Logout from "../Logout/Logout";
 import "./AllSongs.scss";
 import star from "./song_starB.jpg";
 
@@ -36,6 +37,7 @@ class AllSongs extends Component {
           <div id="allsong-container">{mapSongs}</div>
           <img src={star} alt="" />
         </div>
+        <Logout />
       </div>
     );
   }

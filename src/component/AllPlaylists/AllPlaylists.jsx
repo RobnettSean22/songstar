@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { setUser } from "../../reducer/userReducer";
 import { connect } from "react-redux";
+import Logout from "../Logout/Logout";
 import { withRouter } from "react-router-dom";
 import dance from "./dance_party.jpg";
 import Header from "../Header/Header";
@@ -105,6 +106,7 @@ class AllPlaylists extends Component {
             {mapPlay}
           </div>
         </div>
+        <Logout />
       </div>
     );
   }

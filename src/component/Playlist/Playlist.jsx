@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
+import Logout from "../Logout/Logout";
 import solo from "./solo-play.jpg";
 import "./Playlist.scss";
 import Header from "../Header/Header";
@@ -94,6 +95,9 @@ class Playlist extends Component {
               <h4>Add to Playlist</h4>
             </Link>
           </div>
+        </div>
+        <div className="out-log">
+          <Logout />
         </div>
       </div>
     );

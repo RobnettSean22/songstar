@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import "./AddToPlay.scss";
 import Header from "../Header/Header";
+import Logout from "../Logout/Logout";
 import star from "./song_starB.jpg";
 import axios from "axios";
 
@@ -54,6 +55,8 @@ class AddToPlay extends Component {
           <div id="ersong">{mapToAdd}</div>
           <img src={star} alt="" />
         </div>
+
+        <Logout />
       </div>
     );
   }
