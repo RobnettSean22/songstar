@@ -48,7 +48,11 @@ class AddToPlay extends Component {
     return (
       <div className="container-for-all">
         <Header />
-        <Link className=" back" to="/add_song/">
+        <Link
+          className=" back"
+          to={`/in_play/${+this.props.match.params.user_id}/${+this.props.match
+            .params.playlist_id}/`}
+        >
           To Playlist
         </Link>
         <div className="contain-image-n-songs">
