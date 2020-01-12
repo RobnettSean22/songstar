@@ -40,7 +40,7 @@ class SingleSong extends Component {
     return (
       <div className="back">
         <Header />
-
+        <h2>edit song</h2>
         <div className="singleone">{mapSong}</div>
         <div className="log-contain">
           <Logout />
