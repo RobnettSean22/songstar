@@ -70,6 +70,7 @@ class Login extends Component {
             onChange={e => this.setState({ username: e.target.value })}
           />
           <input
+            type="password"
             placeholder="password"
             value={password}
             onChange={e => this.setState({ password: e.target.value })}

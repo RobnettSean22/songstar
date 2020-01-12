@@ -9,6 +9,7 @@ import AddSong from "./component/AddSong/AddSong";
 import Playlist from "./component/Playlist/Playlist";
 import AddToPlay from "./component/AddToPlay/AddToPlay";
 import AllPlaylists from "./component/AllPlaylists/AllPlaylists";
+import SingleSong from "./component/SingleSong/SingleSong";
 import "./App.css";
 
 class App extends Component {
@@ -57,6 +58,11 @@ class App extends Component {
             path="/add_to_play/:user_id/:playlist_id"
             exact
             render={() => <AddToPlay addSong={allSongs} />}
+          />
+          <Route
+            path="/single_song/:song_id"
+            exact
+            render={() => <SingleSong />}
           />
         </Switch>
       </React.Fragment>

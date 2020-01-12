@@ -19,7 +19,11 @@ class AllSongs extends Component {
             <h1>{index}.</h1>
           </div>
           <div>
-            <h1>{songs.song_name}</h1>
+            <h1>
+              <Link to={`/single_song/${songs.song_id}`}>
+                {songs.song_name}
+              </Link>
+            </h1>
             <h3>{songs.artist}</h3>
           </div>
         </div>

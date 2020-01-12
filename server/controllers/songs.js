@@ -5,6 +5,13 @@ module.exports = {
     return res.status(200).send(allSongs);
   },
 
+  viewSingleSong: async (req, res, next) => {
+    const db = await req.app.get("db");
+    const { song_id } = req.params;
+    const singleSong = await db.ssingle_song([song_id]);
+    return res.status(200).send(singleSong);
+  },
+
   newSong: async (req, res, next) => {
     const db = await req.app.get("db");
 
