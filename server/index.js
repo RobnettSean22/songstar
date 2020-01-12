@@ -54,7 +54,7 @@ app.delete("/auth/logout", logout);
 //-----------------------------------------------------
 
 app.get("/api/all_songs/", viewAllSongs);
-app.get("/api/single_song/:song_id", viewSingleSong);
+app.get("/api/song/:song_id", viewSingleSong);
 app.post("/api/new_song/", newSong);
 app.put("/api/update_song/:song_id", editSong);
 

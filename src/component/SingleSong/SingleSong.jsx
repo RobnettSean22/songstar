@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 import axios from "axios";
 
@@ -11,11 +12,11 @@ class SingleSong extends Component {
     };
   }
   componentDidMount() {
-    this.viewSingleSong(+this.props.match.params.songs.song_id);
+    this.viewSingleSong(+this.props.match.params.song_id);
   }
 
   viewSingleSong(song_id) {
-    axios.get(`/single_song/${song_id}`).then(response => {
+    axios.get(`/api/song/${song_id}`).then(response => {
       this.setState({
         song: response.data
       });
@@ -28,7 +29,7 @@ class SingleSong extends Component {
       return (
         <div key={songItem.song_id}>
           <h1>{songItem.song_name}</h1>
-          <h2>{songItem.aritist}</h2>
+          <h2>{songItem.artist}</h2>
           <h3>{songItem.albulm}</h3>
         </div>
       );
@@ -41,4 +42,4 @@ class SingleSong extends Component {
   }
 }
 
-export default SingleSong;
+export default withRouter(SingleSong);
