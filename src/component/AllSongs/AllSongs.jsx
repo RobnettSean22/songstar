@@ -20,7 +20,7 @@ class AllSongs extends Component {
           </div>
           <div>
             <h1>
-              <Link to={`/single_song/${songs.song_id}`}>
+              <Link className="single" to={`/single_song/${songs.song_id}`}>
                 {songs.song_name}
               </Link>
             </h1>

@@ -4,4 +4,53 @@
   background: url(addback.jpg);
   background-size: cover;
 }
+
+.add-newsong-container form {
+  height: 74%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10%;
+}
+
+.add-newsong-container form label {
+  font-size: 50px;
+  margin-top: 15%;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+}
+
+.add-newsong-container form input {
+  width: 63%;
+  height: 5%;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.add-newsong-container form button {
+  width: 20%;
+  height: 9%;
+  font-size: 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fdb713), color-stop(20%), to(#fed221));
+  background: linear-gradient(#fdb713, 20%, #fed221);
+  border: white 2px solid;
+}
+
+.add-newsong-container .log-out {
+  width: 100%;
+  height: 60%;
+  margin-top: 3%;
+}
 /*# sourceMappingURL=AddSong.css.map */

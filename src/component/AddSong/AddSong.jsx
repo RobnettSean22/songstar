@@ -45,14 +45,17 @@ class AddSong extends Component {
         <form onSubmit={e => this.newSong(songInput, artistInput, albulmInput)}>
           <label>New Song</label>
           <input
+            placeholder="Title"
             value={songInput}
             onChange={e => this.setState({ songInput: e.target.value })}
           />
           <input
+            placeholder="Artist"
             value={artistInput}
             onChange={e => this.setState({ artistInput: e.target.value })}
           />
           <input
+            placeholder="Albulm"
             value={albulmInput}
             onChange={e => this.setState({ albulmInput: e.target.value })}
           />
