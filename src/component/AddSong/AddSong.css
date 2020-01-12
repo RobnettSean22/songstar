@@ -39,6 +39,10 @@
   font-size: 20px;
 }
 
+.add-newsong-container form input:focus {
+  outline: none;
+}
+
 .add-newsong-container form button {
   width: 20%;
   height: 9%;

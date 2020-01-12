@@ -71,6 +71,10 @@
   font-size: 20px;
 }
 
+.login-content-container form input:focus {
+  outline: none;
+}
+
 .login-content-container form button {
   width: 100%;
   height: 11%;
