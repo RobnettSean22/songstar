@@ -1,1 +1,55 @@
-/* No CSS *//*# sourceMappingURL=SingleSong.css.map */
+.back {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./headset.jpg");
+  background-size: cover;
+}
+
+.back .singleone {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.back .singleone .single-songs {
+  height: 100%;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.back .singleone .single-songs h1 {
+  font-size: 70px;
+}
+
+.back .singleone .single-songs h2 {
+  font-size: 50px;
+}
+
+.back .singleone .single-songs h3 {
+  font-size: 30px;
+}
+
+.back .log-contain {
+  width: 100%;
+  height: 51%;
+}
+/*# sourceMappingURL=SingleSong.css.map */
