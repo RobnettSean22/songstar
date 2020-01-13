@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Header from "../Header/Header";
 import Logout from "../Logout/Logout";
+import note from "./musicnote.jpg";
 import "./SingleSong.scss";
 
 import axios from "axios";
@@ -15,9 +16,7 @@ class SingleSong extends Component {
       songInput: "",
       aritistInput: "",
       albulmInput: "",
-      songName: [],
-      artist: [],
-      albulm: [],
+
       modual: false
     };
   }
@@ -37,7 +36,10 @@ class SingleSong extends Component {
       .put(`/api/update_song/${song_id}`, { song_name, artist, albulm })
       .then(response => {
         this.setState({
-          song: response.data
+          song: response.data,
+          songInput: "",
+          aritistInput: "",
+          albulmInput: ""
         });
       });
   }
@@ -61,7 +63,9 @@ class SingleSong extends Component {
         <h2>edit song</h2>
         <div className={this.modual ? "shadow" : "none"}>
           <div className={this.modual ? "in" : "outs"}>
-            <div id="pic"></div>
+            <div id="pic">
+              <img src={note} alt="" />
+            </div>
             <div id="form-cont">
               <label>Re-write</label>
               <form>
