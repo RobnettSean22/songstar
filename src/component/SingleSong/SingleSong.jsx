@@ -83,7 +83,18 @@ class SingleSong extends Component {
                   onChange={e => this.setState({ albulmInput: e.target.value })}
                 />
                 <div className="exit">
-                  <button>re-write</button>
+                  <button
+                    onClick={e =>
+                      this.editSong(
+                        +this.props.match.params.song_id,
+                        songInput,
+                        aritistInput,
+                        albulmInput
+                      )
+                    }
+                  >
+                    re-write
+                  </button>
                   <button>close</button>
                 </div>
               </form>
