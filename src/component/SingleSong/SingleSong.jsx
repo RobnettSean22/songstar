@@ -11,7 +11,14 @@ class SingleSong extends Component {
     super(props);
 
     this.state = {
-      song: []
+      song: [],
+      songInput: "",
+      aritistInput: "",
+      albulmInput: "",
+      songName: [],
+      artist: [],
+      albulm: [],
+      modual: false
     };
   }
   componentDidMount() {
@@ -25,9 +32,18 @@ class SingleSong extends Component {
       });
     });
   }
+  editSong(song_id, song_name, artist, albulm) {
+    axios
+      .put(`/api/update_song/${song_id}`, { song_name, artist, albulm })
+      .then(response => {
+        this.setState({
+          song: response.data
+        });
+      });
+  }
 
   render() {
-    const { song } = this.state;
+    const { song, songInput, aritistInput, albulmInput } = this.state;
     const mapSong = song.map(songItem => {
       return (
         <div className="single-songs " key={songItem.song_id}>
@@ -37,10 +53,43 @@ class SingleSong extends Component {
         </div>
       );
     });
+
     return (
       <div className="back">
         <Header />
+
         <h2>edit song</h2>
+        <div className={this.modual ? "shadow" : "none"}>
+          <div className={this.modual ? "in" : "outs"}>
+            <div id="pic"></div>
+            <div id="form-cont">
+              <label>Re-write</label>
+              <form>
+                <input
+                  placeholder={song.song_name}
+                  value={songInput}
+                  onChange={e => this.setState({ songInput: e.target.value })}
+                />
+                <input
+                  placeholder={song.artist}
+                  value={aritistInput}
+                  onChange={e =>
+                    this.setState({ aritistInput: e.target.value })
+                  }
+                />
+                <input
+                  placeholder={song.albulm}
+                  value={albulmInput}
+                  onChange={e => this.setState({ albulmInput: e.target.value })}
+                />
+                <div className="exit">
+                  <button>re-write</button>
+                  <button>close</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         <div className="singleone">{mapSong}</div>
         <div className="log-contain">
           <Logout />
