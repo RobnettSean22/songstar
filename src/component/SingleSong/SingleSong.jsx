@@ -17,13 +17,22 @@ class SingleSong extends Component {
       aritistInput: "",
       albulmInput: "",
 
-      modual: false
+      modal: true
     };
   }
   componentDidMount() {
     this.viewSingleSong(+this.props.match.params.song_id);
   }
-
+  modalSlideOut() {
+    this.setState({
+      modal: false
+    });
+  }
+  modalSlideIn() {
+    this.setState({
+      modal: true
+    });
+  }
   viewSingleSong(song_id) {
     axios.get(`/api/song/${song_id}`).then(response => {
       this.setState({
@@ -41,11 +50,12 @@ class SingleSong extends Component {
           aritistInput: "",
           albulmInput: ""
         });
+        this.modalSlideOut();
       });
   }
 
   render() {
-    const { song, songInput, aritistInput, albulmInput } = this.state;
+    const { song, songInput, aritistInput, albulmInput, modal } = this.state;
     const mapSong = song.map(songItem => {
       return (
         <div className="single-songs " key={songItem.song_id}>
@@ -60,9 +70,9 @@ class SingleSong extends Component {
       <div className="back">
         <Header />
 
-        <h2>edit song</h2>
-        <div className={this.modual ? "shadow" : "none"}>
-          <div className={this.modual ? "in" : "outs"}>
+        <h2 onClick={e => this.modalSlideIn()}>edit song</h2>
+        <div className={modal ? "shadow" : "none"}>
+          <div className={modal ? "in" : "go-out"}>
             <div id="pic">
               <img src={note} alt="" />
             </div>
@@ -99,7 +109,7 @@ class SingleSong extends Component {
                   >
                     re-write
                   </button>
-                  <button>close</button>
+                  <button onClick={e => this.modalSlideOut()}>close</button>
                 </div>
               </form>
             </div>

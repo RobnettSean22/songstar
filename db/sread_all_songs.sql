@@ -1,2 +1,3 @@
 SELECT *
-FROM songs;
+FROM songs
+ORDER BY artist;

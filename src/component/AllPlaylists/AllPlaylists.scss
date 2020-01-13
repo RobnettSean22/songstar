@@ -33,7 +33,7 @@
         border-radius: 5px;
         font-size: 20px;
 
-        & focus {
+        &:focus {
           outline: none;
         }
       }

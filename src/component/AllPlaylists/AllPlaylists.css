@@ -47,7 +47,7 @@
   font-size: 20px;
 }
 
-#play-contain .playlists .playlist-contain input focus {
+#play-contain .playlists .playlist-contain input:focus {
   outline: none;
 }
 
