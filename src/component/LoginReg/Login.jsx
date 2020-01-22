@@ -94,9 +94,9 @@ class Login extends Component {
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
           />
-          <Link to="/songs/">
-            <button>Register</button>
-          </Link>
+
+          <button>Register</button>
+
           <h3 onClick={e => this.registered()}>Account Holder!</h3>
         </form>
       </div>
