@@ -15,9 +15,7 @@ class AllSongs extends Component {
     const mapSongs = this.props.songs.map((songs, index) => {
       return (
         <div key={songs.song_id} className="song-list">
-          <div id="ordered">
-            <h1>{index}.</h1>
-          </div>
+          <div id="ordered"></div>
           <div>
             <h1>
               <Link className="single" to={`/single_song/${songs.song_id}`}>
