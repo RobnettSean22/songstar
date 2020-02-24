@@ -56,6 +56,7 @@ class SingleSong extends Component {
 
   render() {
     const { song, songInput, aritistInput, albulmInput, modal } = this.state;
+
     const mapSong = song.map(songItem => {
       return (
         <div className="single-songs " key={songItem.song_id}>
@@ -65,12 +66,12 @@ class SingleSong extends Component {
         </div>
       );
     });
-
+    console.log(this.props.location.state);
     return (
       <div className="back">
         <Header />
 
-        <h2 onClick={e => this.modalSlideIn()}>edit song</h2>
+        <h2 onClick={e => this.modalSlideIn()}>Edit Song</h2>
         <div className={modal ? "shadow" : "none"}>
           <div className={modal ? "in" : "go-out"}>
             <div id="pic">
@@ -115,6 +116,7 @@ class SingleSong extends Component {
             </div>
           </div>
         </div>
+
         <div className="singleone">{mapSong}</div>
         <div className="log-contain"></div>
         <Logout />

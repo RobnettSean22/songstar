@@ -18,7 +18,10 @@ class AllSongs extends Component {
           <div id="ordered"></div>
           <div>
             <h1>
-              <Link className="single" to={`/single_song/${songs.song_id}`}>
+              <Link
+                className="single"
+                to={{ pathname: `/single_song/${songs.song_id}`, state: songs }}
+              >
                 {songs.song_name}
               </Link>
             </h1>
