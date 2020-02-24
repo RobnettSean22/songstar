@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import Logout from "../Logout/Logout";
 import "./AllSongs.scss";
-import star from "./song_starB.jpg";
+import star from "../../Assests/song_starB.jpg";
 
 class AllSongs extends Component {
   componentDidMount() {

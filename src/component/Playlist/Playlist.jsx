@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import Logout from "../Logout/Logout";
-import solo from "./solo-play.jpg";
+import solo from "../../Assests/solo-play.jpg";
 import "./Playlist.scss";
 import Header from "../Header/Header";
 
@@ -53,7 +53,7 @@ class Playlist extends Component {
           <div className="new-entry" key={acplay.song_id}>
             <div>
               <h1>{acplay.song_name}</h1>
-              <h3> Artist:{acplay.artist}</h3>
+              <h3>{acplay.artist}</h3>
               <h4
                 onClick={e =>
                   this.clearSong(

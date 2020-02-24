@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Header from "../Header/Header";
 import Logout from "../Logout/Logout";
-import note from "./musicnote.jpg";
+import note from "../../Assests/musicnote.jpg";
 import "./SingleSong.scss";
 
 import axios from "axios";
