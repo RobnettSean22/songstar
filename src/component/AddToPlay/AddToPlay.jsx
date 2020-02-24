@@ -40,7 +40,9 @@ class AddToPlay extends Component {
                   listem.song_id
                 )
               }
-            ></button>
+            >
+              +
+            </button>
           </div>
         </div>
       );

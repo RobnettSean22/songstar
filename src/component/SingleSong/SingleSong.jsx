@@ -116,9 +116,8 @@ class SingleSong extends Component {
           </div>
         </div>
         <div className="singleone">{mapSong}</div>
-        <div className="log-contain">
-          <Logout />
-        </div>
+        <div className="log-contain"></div>
+        <Logout />
       </div>
     );
   }
