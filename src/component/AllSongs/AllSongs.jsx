@@ -32,7 +32,7 @@ class AllSongs extends Component {
         <Header />
 
         <Link className=" add-link" to="/add_song/">
-          + Add song
+          + Add Song
         </Link>
 
         <div className="image-n-song-container">
