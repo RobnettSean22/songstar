@@ -37,6 +37,8 @@ massive(CONNECTION_STRING).then(dbInstance => {
   app.set("db", dbInstance);
 });
 
+app.use(express.static(`${__dirname}/../build`));
+
 // register ********************************************
 app.post("/auth/register", register);
 
@@ -68,5 +70,11 @@ app.delete("/api/clear_play/:user_id/:playlist_id", clearPlaylist);
 app.get("/api/playlist_songs/:user_id/:playlist_id", viewPlaylistSongs);
 app.post("/api/to_play/:user_id/:playlist_id", songToPlatlist);
 app.delete("/api/deletef_play/:user_id/:playlist_id/:song_id", clearSong);
+
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
 let port = SERVER_PORT || 4001;
 app.listen(port, () => console.log(`catch me outside on ${port}`));
